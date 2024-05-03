@@ -1,0 +1,17 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:15.0-alpine
+    restart: always
+    container_name: j_testing_cont
+    environment:
+      POSTGRES_DB: testing_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
